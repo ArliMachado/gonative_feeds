@@ -35,19 +35,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const Post = () => (
+const Post = ({ title, author, description }) => (
   <View style={styles.container}>
     <View style={styles.postContainer}>
-      <Text style={styles.postTitle}>Aprendendo React Native</Text>
-      <Text style={styles.postAuthor}>Arli Machado</Text>
+      <Text style={styles.postTitle}>{title}</Text>
+      <Text style={styles.postAuthor}>{author}</Text>
       <View style={styles.lineStyle} />
-      <Text style={styles.postDescription}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, quasi quisquam nihil
-        repudiandae consectetur itaque soluta excepturi fuga corrupti asperiores voluptas beatae
-        praesentium tempore harum magni cumque cupiditate magnam odit!
-      </Text>
+      <Text style={styles.postDescription}>{description}</Text>
     </View>
   </View>
 );
+
+Post.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
 
 export default Post;
